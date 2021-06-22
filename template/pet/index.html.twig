@@ -1,0 +1,20 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+    <div class="container col-8">
+        <h1>My pets</h1>
+        <div class="row justify-content-around">
+            {% for pet in pets %}
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card my-2">
+                        <img src="{{ pet.species == 'cat' ? 'http://placekitten.com/500/600?image=' ~ random(0, 16) : 'https://placedog.net/500/600?id=' ~ random(1, 17) }}" alt="a cute {{ pet.species }}" class="card-img-top">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ pet.name }}</h2>
+                            <p class="card-text">A cute {{ pet.species }} :3</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
